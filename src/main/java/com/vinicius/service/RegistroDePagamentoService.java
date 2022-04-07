@@ -14,13 +14,13 @@ public class RegistroDePagamentoService {
 	private RegistroDePagamentoRepository repo;
 	
 	public RegistroDePagamento find(int id) {
-		RegistroDePagamento empresa = repo.find(id);
+		RegistroDePagamento obj = repo.find(id);
 
-		return empresa;
+		return obj;
 	}
 	public List<RegistroDePagamento> findAll() {
-		List<RegistroDePagamento> adms = new ArrayList<RegistroDePagamento>();
-		adms = repo.findAll();
-		return adms;
+		List<RegistroDePagamento> rdpag = new ArrayList<RegistroDePagamento>();
+		rdpag = repo.findAll();
+		return rdpag;
 	}
 }

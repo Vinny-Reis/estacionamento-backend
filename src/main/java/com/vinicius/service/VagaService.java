@@ -14,13 +14,13 @@ public class VagaService {
 	private VagaRepository repo;
 	
 	public Vaga find(int id) {
-		Vaga empresa = repo.find(id);
+		Vaga obj = repo.find(id);
 
-		return empresa;
+		return obj;
 	}
 	public List<Vaga> findAll() {
-		List<Vaga> adms = new ArrayList<Vaga>();
-		adms = repo.findAll();
-		return adms;
+		List<Vaga> vag = new ArrayList<Vaga>();
+		vag = repo.findAll();
+		return vag;
 	}
 }

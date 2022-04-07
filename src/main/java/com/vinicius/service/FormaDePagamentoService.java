@@ -14,13 +14,13 @@ public class FormaDePagamentoService {
 	private FormaDePagamentoRepository repo;
 	
 	public FormaDePagamento find(int id) {
-		FormaDePagamento empresa = repo.find(id);
+		FormaDePagamento obj = repo.find(id);
 
-		return empresa;
+		return obj;
 	}
 	public List<FormaDePagamento> findAll() {
-		List<FormaDePagamento> adms = new ArrayList<FormaDePagamento>();
-		adms = repo.findAll();
-		return adms;
+		List<FormaDePagamento> fdpag = new ArrayList<FormaDePagamento>();
+		fdpag = repo.findAll();
+		return fdpag;
 	}
 }

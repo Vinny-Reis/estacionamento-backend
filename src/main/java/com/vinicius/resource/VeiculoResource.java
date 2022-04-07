@@ -9,26 +9,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vinicius.domain.RegistroVeiculo;
-import com.vinicius.service.RegistroVeiculoService;
+import com.vinicius.domain.Veiculo;
+import com.vinicius.service.VeiculoService;
 
 @RestController
 @RequestMapping (value = "/RegistroVeiculo")
-public class RegistroVeiculoResource {
+public class VeiculoResource {
 
 	
 	@Autowired
-	private RegistroVeiculoService service;
+	private VeiculoService service;
 
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
-		RegistroVeiculo obj = service.find(id);
+		Veiculo obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<?> findAll() {
-		List<RegistroVeiculo> obj = service.findAll();
+		List<Veiculo> obj = service.findAll();
 		return ResponseEntity.ok().body(obj);
 	}
 	

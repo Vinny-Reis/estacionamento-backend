@@ -7,27 +7,47 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class CategoriaVeiculo implements Serializable {
+public class Veiculo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
 	private int id;
-	private String descricao;
-	private Number valorHora;
+	private String placa;
+	private String modelo;
+	private String cor;
 	
+	@ManyToOne
+	private CategoriaVeiculo catveiculo;
 	
-	
-	public CategoriaVeiculo() {
+	public Veiculo() {
 		super();
 	}
-	public CategoriaVeiculo(int id, String descricao, Number valorHora) {
+	public Veiculo(int id, String placa, String modelo, String cor) {
 		super();
 		this.id = id;
-		this.descricao = descricao;
-		this.valorHora = valorHora;
+		this.placa = placa;
+		this.modelo = modelo;
+		this.cor = cor;
+	}
+	
+	
+	public String getModelo() {
+		return modelo;
+	}
+	
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	public String getCor() {
+		return cor;
+	}
+	public void setCor(String cor) {
+		this.cor = cor;
 	}
 	
 	public int getId() {
@@ -36,19 +56,12 @@ public class CategoriaVeiculo implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getDescricao() {
-		return descricao;
+	public String getPlaca() {
+		return placa;
 	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setPlaca(String placa) {
+		this.placa = placa;
 	}
-	public Number getValorHora() {
-		return valorHora;
-	}
-	public void setValorHora(Number valorHora) {
-		this.valorHora = valorHora;
-	}
-	
 	
 	@Override
 	public int hashCode() {
@@ -62,16 +75,15 @@ public class CategoriaVeiculo implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CategoriaVeiculo other = (CategoriaVeiculo) obj;
+		Veiculo other = (Veiculo) obj;
 		return id == other.id;
 	}
 	
 	
 	@Override
 	public String toString() {
-		return "CategoriaVeiculo [id=" + id + ", descricao=" + descricao + ", valorHora=" + valorHora + "]";
+		return "RegistroVeiculo [id=" + id + ", placa=" + placa + ", modelo=" + modelo + ", cor=" + cor + "]";
 	}
-	
 	
 	
 	

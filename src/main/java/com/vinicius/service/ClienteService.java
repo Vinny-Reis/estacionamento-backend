@@ -14,14 +14,14 @@ public class ClienteService {
 	private ClienteRepository repo;
 	
 	public Cliente find(int id) {
-		Cliente empresa = repo.find(id);
+		Cliente obj = repo.find(id);
 
-		return empresa;
+		return obj;
 	}
 	public List<Cliente> findAll() {
-		List<Cliente> adms = new ArrayList<Cliente>();
-		adms = repo.findAll();
-		return adms;
+		List<Cliente> clit = new ArrayList<Cliente>();
+		clit = repo.findAll();
+		return clit;
 	}
 	
 }

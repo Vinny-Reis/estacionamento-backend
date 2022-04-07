@@ -14,14 +14,14 @@ public class CategoriaVeiculoService {
 	private CategoriaVeiculoRepository repo;
 	
 	public CategoriaVeiculo find(int id) {
-		CategoriaVeiculo empresa = repo.find(id);
+		CategoriaVeiculo obj = repo.find(id);
 
-		return empresa;
+		return obj;
 	}
 	public List<CategoriaVeiculo> findAll() {
-		List<CategoriaVeiculo> adms = new ArrayList<CategoriaVeiculo>();
-		adms = repo.findAll();
-		return adms;
+		List<CategoriaVeiculo> catvei = new ArrayList<CategoriaVeiculo>();
+		catvei = repo.findAll();
+		return catvei;
 	}
 	
 }

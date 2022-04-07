@@ -1,13 +1,26 @@
 package com.vinicius.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Desocupacao {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Desocupacao implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	private int id;
 	private int horaSaida;
 	private Date dataSaida;
+	
+	
 	
 	public int getId() {
 		return id;

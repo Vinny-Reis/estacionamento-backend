@@ -4,11 +4,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.vinicius.domain.RegistroVeiculo;
+import com.vinicius.domain.Veiculo;
 
 @Repository
-public interface RegistroVeiculoRepository  extends JpaRepository<RegistroVeiculo, Integer> {
+public interface VeiculoRepository  extends JpaRepository<Veiculo, Integer> {
 	@Query(value= "select * from RegistroVeiculo where id = ?", nativeQuery = true)
-	RegistroVeiculo find(int id);
+	Veiculo find(int id);
 }
 

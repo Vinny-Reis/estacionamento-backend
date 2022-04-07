@@ -14,13 +14,13 @@ public class UsuarioService {
 	private UsuarioRepository repo;
 	
 	public Usuario find(int id) {
-		Usuario empresa = repo.find(id);
+		Usuario obj = repo.find(id);
 
-		return empresa;
+		return obj;
 	}
 	public List<Usuario> findAll() {
-		List<Usuario> adms = new ArrayList<Usuario>();
-		adms = repo.findAll();
-		return adms;
+		List<Usuario> usr = new ArrayList<Usuario>();
+		usr = repo.findAll();
+		return usr;
 	}
 }

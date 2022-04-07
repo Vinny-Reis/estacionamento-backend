@@ -14,13 +14,13 @@ public class DesocupacaoService {
 	private DesocupacaoRepository repo;
 	
 	public Desocupacao find(int id) {
-		Desocupacao empresa = repo.find(id);
+		Desocupacao obj = repo.find(id);
 
-		return empresa;
+		return obj;
 	}
 	public List<Desocupacao> findAll() {
-		List<Desocupacao> adms = new ArrayList<Desocupacao>();
-		adms = repo.findAll();
-		return adms;
+		List<Desocupacao> desc = new ArrayList<Desocupacao>();
+		desc = repo.findAll();
+		return desc;
 	}
 }

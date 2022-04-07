@@ -14,13 +14,13 @@ public class OcupacaoService {
 	private OcupacaoRepository repo;
 	
 	public Ocupacao find(int id) {
-		Ocupacao empresa = repo.find(id);
+		Ocupacao obj = repo.find(id);
 
-		return empresa;
+		return obj;
 	}
 	public List<Ocupacao> findAll() {
-		List<Ocupacao> adms = new ArrayList<Ocupacao>();
-		adms = repo.findAll();
-		return adms;
+		List<Ocupacao> ocp = new ArrayList<Ocupacao>();
+		ocp = repo.findAll();
+		return ocp;
 	}
 }
