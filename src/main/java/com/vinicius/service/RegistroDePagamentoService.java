@@ -23,4 +23,8 @@ public class RegistroDePagamentoService {
 		rdpag = repo.findAll();
 		return rdpag;
 	}
+	
+	public RegistroDePagamento update(RegistroDePagamento obj) {
+		return repo.save(obj);
+	}
 }

@@ -23,4 +23,8 @@ public class UsuarioService {
 		usr = repo.findAll();
 		return usr;
 	}
+	
+	public Usuario update(Usuario obj) {
+		return repo.save(obj);
+	}
 }

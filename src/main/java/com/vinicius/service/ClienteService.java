@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vinicius.domain.Cliente;
+
 import com.vinicius.repository.ClienteRepository;
 
 public class ClienteService {
@@ -23,5 +24,10 @@ public class ClienteService {
 		clit = repo.findAll();
 		return clit;
 	}
+	
+	public Cliente update(Cliente obj) {
+		return repo.save(obj);
+	}
+	
 	
 }

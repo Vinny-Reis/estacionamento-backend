@@ -23,4 +23,8 @@ public class OcupacaoService {
 		ocp = repo.findAll();
 		return ocp;
 	}
+	
+	public Ocupacao update(Ocupacao obj) {
+		return repo.save(obj);
+	}
 }

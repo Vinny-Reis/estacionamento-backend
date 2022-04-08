@@ -23,4 +23,8 @@ public class VeiculoService {
 		rveic = repo.findAll();
 		return rveic;
 	}
+	
+	public Veiculo update(Veiculo obj) {
+		return repo.save(obj);
+	}
 }

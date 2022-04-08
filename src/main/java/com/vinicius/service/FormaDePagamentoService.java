@@ -23,4 +23,9 @@ public class FormaDePagamentoService {
 		fdpag = repo.findAll();
 		return fdpag;
 	}
+	
+	
+	public FormaDePagamento update(FormaDePagamento obj) {
+		return repo.save(obj);
+	}
 }

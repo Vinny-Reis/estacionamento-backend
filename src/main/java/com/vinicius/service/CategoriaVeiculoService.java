@@ -24,4 +24,23 @@ public class CategoriaVeiculoService {
 		return catvei;
 	}
 	
+
+	public CategoriaVeiculo update(CategoriaVeiculo obj) {
+		return repo.save(obj);
+	}
+	
+	
+	
+	
+	
+	
+	//public void delete(Integer id) {
+	//	find(id);
+	//	try {
+	//		repo.deleteById(id);
+	//	
+	
+
+	
+	
 }

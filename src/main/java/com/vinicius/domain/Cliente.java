@@ -22,6 +22,8 @@ public class Cliente implements Serializable {
 	private String cpf;
 	private String email;
 	
+	
+	
 	public int getId() {
 		return id;
 	}

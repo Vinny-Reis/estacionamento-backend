@@ -23,4 +23,8 @@ public class VagaService {
 		vag = repo.findAll();
 		return vag;
 	}
+	
+	public Vaga update(Vaga obj) {
+		return repo.save(obj);
+	}
 }

@@ -23,4 +23,9 @@ public class DesocupacaoService {
 		desc = repo.findAll();
 		return desc;
 	}
+	
+	public Desocupacao update(Desocupacao obj) {
+		return repo.save(obj);
+	}
+	
 }
