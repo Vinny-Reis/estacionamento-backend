@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import com.vinicius.domain.Cliente;
-
 import com.vinicius.repository.ClienteRepository;
 
 public class ClienteService {
@@ -27,6 +27,16 @@ public class ClienteService {
 	
 	public Cliente update(Cliente obj) {
 		return repo.save(obj);
+	}
+	
+	
+	public void delete(Integer id) {
+		find(id);
+		try {
+			repo.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityViolationException("");
+		}
 	}
 	
 	

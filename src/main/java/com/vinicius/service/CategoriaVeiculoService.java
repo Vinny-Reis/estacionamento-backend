@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import com.vinicius.domain.CategoriaVeiculo;
 import com.vinicius.repository.CategoriaVeiculoRepository;
@@ -25,6 +26,8 @@ public class CategoriaVeiculoService {
 	}
 	
 
+	
+	
 	public CategoriaVeiculo update(CategoriaVeiculo obj) {
 		return repo.save(obj);
 	}
@@ -34,13 +37,14 @@ public class CategoriaVeiculoService {
 	
 	
 	
-	//public void delete(Integer id) {
-	//	find(id);
-	//	try {
-	//		repo.deleteById(id);
-	//	
-	
-
+	public void delete(Integer id) {
+		find(id);
+		try {
+			repo.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityViolationException("");
+		}
+	}
 	
 	
 }
