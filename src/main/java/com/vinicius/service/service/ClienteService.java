@@ -25,7 +25,13 @@ public class ClienteService {
 		return clit;
 	}
 	
-	public void delete (Integer id) {
+	public Cliente update(Cliente obj) {
+		return repo.save(obj);
+	}
+	
+	
+	public void delete(Integer id) {
+		find(id);
 		try {
 			repo.deleteById(id);
 		} catch (DataIntegrityViolationException e) {
@@ -33,15 +39,5 @@ public class ClienteService {
 		}
 	}
 	
-	public Cliente insert(Cliente obj){
-		find(obj.getId());
-		return repo.save(obj);
-	}
-	
-	public Cliente update(Cliente obj) {
-		find(obj.getId());
-		return repo.save(obj);
-	}
 	
 }
-	

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 
 import com.vinicius.domain.Ocupacao;
 import com.vinicius.repository.OcupacaoRepository;
@@ -24,22 +23,8 @@ public class OcupacaoService {
 		ocp = repo.findAll();
 		return ocp;
 	}
-	public void delete (Integer id) {
-		try {
-			repo.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("");
-		}
-	}
-	
-	public Ocupacao insert(Ocupacao obj){
-		find(obj.getId());
-		return repo.save(obj);
-	}
 	
 	public Ocupacao update(Ocupacao obj) {
-		find(obj.getId());
 		return repo.save(obj);
 	}
-	
 }

@@ -16,17 +16,29 @@ public class CategoriaVeiculoService {
 	
 	public CategoriaVeiculo find(int id) {
 		CategoriaVeiculo obj = repo.find(id);
-		
+
 		return obj;
 	}
-	
 	public List<CategoriaVeiculo> findAll() {
 		List<CategoriaVeiculo> catvei = new ArrayList<CategoriaVeiculo>();
 		catvei = repo.findAll();
 		return catvei;
 	}
 	
+
+	
+	
+	public CategoriaVeiculo update(CategoriaVeiculo obj) {
+		return repo.save(obj);
+	}
+	
+	
+	
+	
+	
+	
 	public void delete(Integer id) {
+		find(id);
 		try {
 			repo.deleteById(id);
 		} catch (DataIntegrityViolationException e) {
@@ -34,13 +46,5 @@ public class CategoriaVeiculoService {
 		}
 	}
 	
-	public CategoriaVeiculo insert(CategoriaVeiculo obj){
-		find(obj.getId());
-		return repo.save(obj);
-	}
 	
-	public CategoriaVeiculo update(CategoriaVeiculo obj) {
-		find(obj.getId());
-		return repo.save(obj);
-	}
 }

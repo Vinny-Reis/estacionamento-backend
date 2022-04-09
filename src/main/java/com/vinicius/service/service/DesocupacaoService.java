@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 
 import com.vinicius.domain.Desocupacao;
 import com.vinicius.repository.DesocupacaoRepository;
@@ -25,21 +24,7 @@ public class DesocupacaoService {
 		return desc;
 	}
 	
-	public void delete (Integer id) {
-		try {
-			repo.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("");
-		}
-	}
-	
-	public Desocupacao insert(Desocupacao obj){
-		find(obj.getId());
-		return repo.save(obj);
-	}
-	
 	public Desocupacao update(Desocupacao obj) {
-		find(obj.getId());
 		return repo.save(obj);
 	}
 	

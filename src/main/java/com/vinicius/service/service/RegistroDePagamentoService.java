@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 
 import com.vinicius.domain.RegistroDePagamento;
 import com.vinicius.repository.RegistroDePagamentoRepository;
@@ -24,23 +23,8 @@ public class RegistroDePagamentoService {
 		rdpag = repo.findAll();
 		return rdpag;
 	}
-	public void delete (Integer id) {
-		try {
-			repo.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("");
-		}
-	}
-	
-	public RegistroDePagamento insert(RegistroDePagamento obj){
-		find(obj.getId());
-		return repo.save(obj);
-	}
 	
 	public RegistroDePagamento update(RegistroDePagamento obj) {
-		find(obj.getId());
 		return repo.save(obj);
 	}
-	
-	
 }

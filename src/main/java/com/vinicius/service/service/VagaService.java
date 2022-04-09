@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 
 import com.vinicius.domain.Vaga;
 import com.vinicius.repository.VagaRepository;
@@ -25,21 +24,7 @@ public class VagaService {
 		return vag;
 	}
 	
-	public void delete (Integer id) {
-		try {
-			repo.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("");
-		}
-	}
-	
-	public Vaga insert(Vaga obj){
-		find(obj.getId());
-		return repo.save(obj);
-	}
-	
 	public Vaga update(Vaga obj) {
-		find(obj.getId());
 		return repo.save(obj);
 	}
 }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 
 import com.vinicius.domain.FormaDePagamento;
 import com.vinicius.repository.FormaDePagamentoRepository;
@@ -24,22 +23,9 @@ public class FormaDePagamentoService {
 		fdpag = repo.findAll();
 		return fdpag;
 	}
-	public void delete (Integer id) {
-		try {
-			repo.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("");
-		}
-	}
 	
-	public FormaDePagamento insert(FormaDePagamento obj){
-		find(obj.getId());
-		return repo.save(obj);
-	}
 	
 	public FormaDePagamento update(FormaDePagamento obj) {
-		find(obj.getId());
 		return repo.save(obj);
 	}
-	
 }
