@@ -24,6 +24,7 @@ public class RegistroDePagamentoService {
 		rdpag = repo.findAll();
 		return rdpag;
 	}
+<<<<<<< HEAD
 	public void delete (Integer id) {
 		try {
 			repo.deleteById(id);
@@ -43,4 +44,10 @@ public class RegistroDePagamentoService {
 	}
 	
 	
+=======
+	
+	public RegistroDePagamento update(RegistroDePagamento obj) {
+		return repo.save(obj);
+	}
+>>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
 }

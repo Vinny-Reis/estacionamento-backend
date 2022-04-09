@@ -19,7 +19,6 @@ public class CategoriaVeiculo implements Serializable {
 	private Number valorHora;
 	
 	
-	
 	public CategoriaVeiculo() {
 		super();
 	}
@@ -28,8 +27,8 @@ public class CategoriaVeiculo implements Serializable {
 		this.id = id;
 		this.descricao = descricao;
 		this.valorHora = valorHora;
+		
 	}
-	
 	public int getId() {
 		return id;
 	}
@@ -48,8 +47,9 @@ public class CategoriaVeiculo implements Serializable {
 	public void setValorHora(Number valorHora) {
 		this.valorHora = valorHora;
 	}
-	
-	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -65,12 +65,14 @@ public class CategoriaVeiculo implements Serializable {
 		CategoriaVeiculo other = (CategoriaVeiculo) obj;
 		return id == other.id;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "CategoriaVeiculo [id=" + id + ", descricao=" + descricao + ", valorHora=" + valorHora + "]";
 	}
+	
+	
+	
+
 	
 	
 	

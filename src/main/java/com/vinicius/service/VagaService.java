@@ -25,6 +25,7 @@ public class VagaService {
 		return vag;
 	}
 	
+<<<<<<< HEAD
 	public void delete (Integer id) {
 		try {
 			repo.deleteById(id);
@@ -40,6 +41,9 @@ public class VagaService {
 	
 	public Vaga update(Vaga obj) {
 		find(obj.getId());
+=======
+	public Vaga update(Vaga obj) {
+>>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
 		return repo.save(obj);
 	}
 }

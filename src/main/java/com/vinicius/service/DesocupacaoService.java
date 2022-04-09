@@ -25,6 +25,7 @@ public class DesocupacaoService {
 		return desc;
 	}
 	
+<<<<<<< HEAD
 	public void delete (Integer id) {
 		try {
 			repo.deleteById(id);
@@ -40,6 +41,9 @@ public class DesocupacaoService {
 	
 	public Desocupacao update(Desocupacao obj) {
 		find(obj.getId());
+=======
+	public Desocupacao update(Desocupacao obj) {
+>>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
 		return repo.save(obj);
 	}
 	

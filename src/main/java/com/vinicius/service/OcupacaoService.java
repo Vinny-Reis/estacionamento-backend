@@ -24,6 +24,7 @@ public class OcupacaoService {
 		ocp = repo.findAll();
 		return ocp;
 	}
+<<<<<<< HEAD
 	public void delete (Integer id) {
 		try {
 			repo.deleteById(id);
@@ -42,4 +43,10 @@ public class OcupacaoService {
 		return repo.save(obj);
 	}
 	
+=======
+	
+	public Ocupacao update(Ocupacao obj) {
+		return repo.save(obj);
+	}
+>>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
 }

@@ -53,4 +53,8 @@ public class OcupacaoResource {
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
 }

@@ -35,6 +35,7 @@ public class DesocupacaoResource {
 	}
 	
 	
+<<<<<<< HEAD
 	@RequestMapping (method = RequestMethod.POST )
 	public ResponseEntity<Void> insert(@RequestBody Desocupacao obj){
 		obj = service.insert(obj);
@@ -43,6 +44,8 @@ public class DesocupacaoResource {
 		return ResponseEntity.created(uri).build();
 	}
 	
+=======
+>>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
 	@RequestMapping(value = "/{id}",method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody Desocupacao obj, @PathVariable Integer id){
 		obj.setId(id);
@@ -50,6 +53,7 @@ public class DesocupacaoResource {
 		return ResponseEntity.noContent().build();
 	}
 	
+<<<<<<< HEAD
 	
 	@RequestMapping (value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id){
@@ -58,4 +62,6 @@ public class DesocupacaoResource {
 	}
 	
 	
+=======
+>>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
 }
