@@ -24,15 +24,7 @@ public class VeiculoService {
 		rveic = repo.findAll();
 		return rveic;
 	}
-<<<<<<< HEAD
-	public void delete (Integer id) {
-		try {
-			repo.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("");
-		}
-	}
-	
+
 	
 	public Veiculo insert(Veiculo obj){
 		find(obj.getId());
@@ -44,11 +36,12 @@ public class VeiculoService {
 		return repo.save(obj);
 	}
 	
-	
-=======
-	
-	public Veiculo update(Veiculo obj) {
-		return repo.save(obj);
+	public void delete (Integer id) {
+		try {
+			repo.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityViolationException("");
+		}
 	}
->>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
+
 }

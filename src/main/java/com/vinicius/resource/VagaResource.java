@@ -33,11 +33,6 @@ public class VagaResource {
 		List<Vaga> obj = service.findAll();
 		return ResponseEntity.ok().body(obj);
 	}
-	@RequestMapping (value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable Integer id){
-		service.delete(id);
-		return ResponseEntity.noContent().build();
-	}
 	
 	@RequestMapping (method = RequestMethod.POST )
 	public ResponseEntity<Void> insert(@RequestBody Vaga obj){
@@ -53,9 +48,11 @@ public class VagaResource {
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
-<<<<<<< HEAD
-=======
-	
->>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
+
+	@RequestMapping (value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable Integer id){
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
 	
 }

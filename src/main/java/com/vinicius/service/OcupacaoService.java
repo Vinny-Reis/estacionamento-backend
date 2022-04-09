@@ -24,14 +24,6 @@ public class OcupacaoService {
 		ocp = repo.findAll();
 		return ocp;
 	}
-<<<<<<< HEAD
-	public void delete (Integer id) {
-		try {
-			repo.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("");
-		}
-	}
 	
 	public Ocupacao insert(Ocupacao obj){
 		find(obj.getId());
@@ -42,11 +34,12 @@ public class OcupacaoService {
 		find(obj.getId());
 		return repo.save(obj);
 	}
-	
-=======
-	
-	public Ocupacao update(Ocupacao obj) {
-		return repo.save(obj);
+
+	public void delete (Integer id) {
+		try {
+			repo.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityViolationException("");
+		}
 	}
->>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
 }

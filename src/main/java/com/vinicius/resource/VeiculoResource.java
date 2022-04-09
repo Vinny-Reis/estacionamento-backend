@@ -35,12 +35,7 @@ public class VeiculoResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-<<<<<<< HEAD
-	@RequestMapping (value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable Integer id){
-		service.delete(id);
-		return ResponseEntity.noContent().build();
-	}
+
 	@RequestMapping (method = RequestMethod.POST )
 	public ResponseEntity<Void> insert(@RequestBody Veiculo obj){
 		obj = service.insert(obj);
@@ -48,18 +43,18 @@ public class VeiculoResource {
 				.path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
-	
-=======
->>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
+
 	@RequestMapping(value = "/{id}",method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody Veiculo obj, @PathVariable Integer id){
 		obj.setId(id);
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
-<<<<<<< HEAD
 	
-=======
->>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
-	
+	@RequestMapping (value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable Integer id){
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
+
 }

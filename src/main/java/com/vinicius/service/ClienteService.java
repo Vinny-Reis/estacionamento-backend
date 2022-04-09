@@ -24,26 +24,8 @@ public class ClienteService {
 		clit = repo.findAll();
 		return clit;
 	}
-	
-<<<<<<< HEAD
-	public void delete (Integer id) {
-=======
-	public Cliente update(Cliente obj) {
-		return repo.save(obj);
-	}
-	
-	
-	public void delete(Integer id) {
-		find(id);
->>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
-		try {
-			repo.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("");
-		}
-	}
-	
-<<<<<<< HEAD
+		
+
 	public Cliente insert(Cliente obj){
 		find(obj.getId());
 		return repo.save(obj);
@@ -53,8 +35,17 @@ public class ClienteService {
 		find(obj.getId());
 		return repo.save(obj);
 	}
-=======
->>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
+
+	public void delete(Integer id) {
+		find(id);
+
+		try {
+			repo.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityViolationException("");
+		}
+	}
+
 	
 }
 	

@@ -33,7 +33,7 @@ public class CategoriaVeiculoResource {
 		List<CategoriaVeiculo> obj = service.findAll();
 		return ResponseEntity.ok().body(obj);
 	}
-<<<<<<< HEAD
+
 	
 	@RequestMapping (method = RequestMethod.POST )
 	public ResponseEntity<Void> insert(@RequestBody CategoriaVeiculo obj){
@@ -42,9 +42,9 @@ public class CategoriaVeiculoResource {
 				.path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
-=======
 
->>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
+
+
 	
 	@RequestMapping(value = "/{id}",method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody CategoriaVeiculo obj, @PathVariable Integer id){
@@ -53,17 +53,11 @@ public class CategoriaVeiculoResource {
 		return ResponseEntity.noContent().build();
 	}
 	
-<<<<<<< HEAD
+
 	@RequestMapping(value = "/{id", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id){
 			service.delete(id);
 			return ResponseEntity.noContent().build();
-			
-=======
-	@RequestMapping(value= "/{id}",method = RequestMethod.DELETE)
-	public ResponseEntity<Void> delete (@PathVariable Integer id){
-		service.delete(id);
-		return ResponseEntity.noContent().build();
->>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
 	}
+
 }

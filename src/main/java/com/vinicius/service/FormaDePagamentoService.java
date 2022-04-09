@@ -24,15 +24,7 @@ public class FormaDePagamentoService {
 		fdpag = repo.findAll();
 		return fdpag;
 	}
-<<<<<<< HEAD
-	public void delete (Integer id) {
-		try {
-			repo.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("");
-		}
-	}
-	
+
 	public FormaDePagamento insert(FormaDePagamento obj){
 		find(obj.getId());
 		return repo.save(obj);
@@ -43,11 +35,12 @@ public class FormaDePagamentoService {
 		return repo.save(obj);
 	}
 	
-=======
-	
-	
-	public FormaDePagamento update(FormaDePagamento obj) {
-		return repo.save(obj);
+	public void delete (Integer id) {
+		try {
+			repo.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityViolationException("");
+		}
 	}
->>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
+
 }

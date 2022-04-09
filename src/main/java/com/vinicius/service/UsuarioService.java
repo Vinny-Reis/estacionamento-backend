@@ -24,14 +24,6 @@ public class UsuarioService {
 		usr = repo.findAll();
 		return usr;
 	}
-<<<<<<< HEAD
-	public void delete (Integer id) {
-		try {
-			repo.deleteById(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityViolationException("");
-		}
-	}
 	
 	public Usuario insert(Usuario obj){
 		find(obj.getId());
@@ -40,10 +32,14 @@ public class UsuarioService {
 	
 	public Usuario update(Usuario obj) {
 		find(obj.getId());
-=======
-	
-	public Usuario update(Usuario obj) {
->>>>>>> 607d03a97b3b979242279f61d9a91b9683dcbbc2
 		return repo.save(obj);
+	}
+	
+	public void delete (Integer id) {
+		try {
+			repo.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityViolationException("");
+		}
 	}
 }
