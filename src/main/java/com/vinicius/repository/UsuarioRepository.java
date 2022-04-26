@@ -8,7 +8,7 @@ import com.vinicius.domain.Usuario;
 
 @Repository
 public interface UsuarioRepository  extends JpaRepository<Usuario, Integer> {
-	@Query(value= "select * from Usuario where id = ?", nativeQuery = true)
-	Usuario find(int id);
+	@Query(value= "select * from usuario where id = ?", nativeQuery = true)
+	Usuario find(Integer id);
 }
 

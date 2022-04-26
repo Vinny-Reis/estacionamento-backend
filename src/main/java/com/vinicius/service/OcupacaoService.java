@@ -5,10 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
 
 import com.vinicius.domain.Ocupacao;
 import com.vinicius.repository.OcupacaoRepository;
-
+@Service
 public class OcupacaoService {
 	
 	@Autowired
@@ -25,9 +26,9 @@ public class OcupacaoService {
 		return ocp;
 	}
 	
-	public Ocupacao insert(Ocupacao obj){
-		find(obj.getId());
-		return repo.save(obj);
+	public Ocupacao insert(Ocupacao obj) {
+		repo.save(obj);
+		return obj;
 	}
 	
 	public Ocupacao update(Ocupacao obj) {

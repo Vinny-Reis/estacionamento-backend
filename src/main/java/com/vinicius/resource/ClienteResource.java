@@ -16,7 +16,7 @@ import com.vinicius.domain.Cliente;
 import com.vinicius.service.ClienteService;
 
 @RestController
-@RequestMapping(value = "/Cliente")
+@RequestMapping(value = "/cliente")
 public class ClienteResource {
 	
 	@Autowired
@@ -28,18 +28,21 @@ public class ClienteResource {
 		Cliente obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
+	
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<?> findAll() {
 		List<Cliente> obj = service.findAll();
 		return ResponseEntity.ok().body(obj);
 	}
-
-	@RequestMapping (method = RequestMethod.POST )
-	public ResponseEntity<Void> insert(@RequestBody Cliente obj){
-		obj = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<Cliente> insert(@RequestBody Cliente obj) {
+		Cliente objNovo = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(objNovo.getId())
+				.toUri();
+		return ResponseEntity.created(uri).body(objNovo);
 	}
 
 	

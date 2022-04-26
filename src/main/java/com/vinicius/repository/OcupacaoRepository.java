@@ -8,6 +8,6 @@ import com.vinicius.domain.Ocupacao;
 
 @Repository
 public interface OcupacaoRepository  extends JpaRepository<Ocupacao, Integer> {
-	@Query(value= "select * from Ocupacao where id = ?", nativeQuery = true)
+	@Query(value= "select * from ocupacao where id = ?", nativeQuery = true)
 	Ocupacao find(int id);
 }

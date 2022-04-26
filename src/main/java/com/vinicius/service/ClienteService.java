@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
 
 import com.vinicius.domain.Cliente;
 import com.vinicius.repository.ClienteRepository;
 
+@Service
 public class ClienteService {
 
 	@Autowired
@@ -19,16 +21,17 @@ public class ClienteService {
 
 		return obj;
 	}
+	
 	public List<Cliente> findAll() {
-		List<Cliente> clit = new ArrayList<Cliente>();
-		clit = repo.findAll();
-		return clit;
+		List<Cliente> cli = new ArrayList<Cliente>();
+		cli = repo.findAll();
+		return cli;
 	}
-		
+	
 
-	public Cliente insert(Cliente obj){
-		find(obj.getId());
-		return repo.save(obj);
+	public Cliente insert(Cliente obj) {
+		repo.save(obj);
+		return obj;
 	}
 	
 	public Cliente update(Cliente obj) {

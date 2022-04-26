@@ -5,10 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
 
 import com.vinicius.domain.Veiculo;
 import com.vinicius.repository.VeiculoRepository;
-
+@Service
 public class VeiculoService {
 	
 	@Autowired
@@ -26,9 +27,9 @@ public class VeiculoService {
 	}
 
 	
-	public Veiculo insert(Veiculo obj){
-		find(obj.getId());
-		return repo.save(obj);
+	public Veiculo insert(Veiculo obj) {
+		repo.save(obj);
+		return obj;
 	}
 	
 	public Veiculo update(Veiculo obj) {

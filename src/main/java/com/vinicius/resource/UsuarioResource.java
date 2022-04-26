@@ -16,7 +16,7 @@ import com.vinicius.domain.Usuario;
 import com.vinicius.service.UsuarioService;
 
 @RestController
-@RequestMapping (value = "/Usuario")
+@RequestMapping (value = "/usuario")
 public class UsuarioResource {
 
 	
@@ -35,12 +35,13 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@RequestMapping (method = RequestMethod.POST )
-	public ResponseEntity<Void> insert(@RequestBody Usuario obj){
-		obj = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<Usuario> insert(@RequestBody Usuario obj) {
+		Usuario objNovo = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(objNovo.getId())
+				.toUri();
+		return ResponseEntity.created(uri).body(objNovo);
 	}
 	
 	@RequestMapping(value = "/{id}",method = RequestMethod.PUT)

@@ -16,7 +16,7 @@ import com.vinicius.domain.Desocupacao;
 import com.vinicius.service.DesocupacaoService;
 
 @RestController
-@RequestMapping (value = "/Desocupacao")
+@RequestMapping (value = "/desocupacao")
 public class DesocupacaoResource {
 
 	@Autowired
@@ -34,12 +34,13 @@ public class DesocupacaoResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@RequestMapping (method = RequestMethod.POST )
-	public ResponseEntity<Void> insert(@RequestBody Desocupacao obj){
-		obj = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<Desocupacao> insert(@RequestBody Desocupacao obj) {
+		Desocupacao objNovo = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(objNovo.getId())
+				.toUri();
+		return ResponseEntity.created(uri).body(objNovo);
 	}
 
 	@RequestMapping(value = "/{id}",method = RequestMethod.PUT)

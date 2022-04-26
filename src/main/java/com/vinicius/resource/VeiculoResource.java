@@ -16,7 +16,7 @@ import com.vinicius.domain.Veiculo;
 import com.vinicius.service.VeiculoService;
 
 @RestController
-@RequestMapping (value = "/Veiculo")
+@RequestMapping (value = "/veiculo")
 public class VeiculoResource {
 
 	
@@ -36,12 +36,13 @@ public class VeiculoResource {
 	}
 	
 
-	@RequestMapping (method = RequestMethod.POST )
-	public ResponseEntity<Void> insert(@RequestBody Veiculo obj){
-		obj = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<Veiculo> insert(@RequestBody Veiculo obj) {
+		Veiculo objNovo = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(objNovo.getId())
+				.toUri();
+		return ResponseEntity.created(uri).body(objNovo);
 	}
 
 	@RequestMapping(value = "/{id}",method = RequestMethod.PUT)

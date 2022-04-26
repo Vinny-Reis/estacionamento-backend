@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Ocupacao implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -16,14 +18,22 @@ public class Ocupacao implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 
-	private int id;
+	private Integer id;
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataEnt;
-	private int horaEnt;
-	
-	public int getId() {
+	public Ocupacao() {
+		super();
+	}
+	public Ocupacao(Integer id, Date dataEnt) {
+		super();
+		this.id = id;
+		this.dataEnt = dataEnt;
+		
+	}
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Date getDataEnt() {
@@ -32,13 +42,10 @@ public class Ocupacao implements Serializable {
 	public void setDataEnt(Date dataEnt) {
 		this.dataEnt = dataEnt;
 	}
-	public int getHoraEnt() {
-		return horaEnt;
-	}
-	public void setHoraEnt(int horaEnt) {
-		this.horaEnt = horaEnt;
-	}
 	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -52,22 +59,11 @@ public class Ocupacao implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Ocupacao other = (Ocupacao) obj;
-		return id == other.id;
+		return Objects.equals(id, other.id);
 	}
-	
-	public Ocupacao() {
-		super();
-	}
-	public Ocupacao(int id, Date dataEnt, int horaEnt) {
-		super();
-		this.id = id;
-		this.dataEnt = dataEnt;
-		this.horaEnt = horaEnt;
-	}
-	
 	@Override
 	public String toString() {
-		return "Ocupacao [id=" + id + ", horaEnt=" + horaEnt + "]";
+		return "Ocupacao [id=" + id + ", dataEnt=" + dataEnt + ", horaEnt=" + "]";
 	}
 	
 	

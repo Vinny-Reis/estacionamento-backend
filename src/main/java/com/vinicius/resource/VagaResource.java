@@ -16,7 +16,7 @@ import com.vinicius.domain.Vaga;
 import com.vinicius.service.VagaService;
 
 @RestController
-@RequestMapping (value = "/Vaga")
+@RequestMapping (value = "/vaga")
 public class VagaResource {
 
 	@Autowired
@@ -34,12 +34,13 @@ public class VagaResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@RequestMapping (method = RequestMethod.POST )
-	public ResponseEntity<Void> insert(@RequestBody Vaga obj){
-		obj = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<Vaga> insert(@RequestBody Vaga obj) {
+		Vaga objNovo = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(objNovo.getId())
+				.toUri();
+		return ResponseEntity.created(uri).body(objNovo);
 	}
 	
 	@RequestMapping(value = "/{id}",method = RequestMethod.PUT)

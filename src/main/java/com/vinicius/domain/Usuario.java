@@ -14,16 +14,27 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-
-	private int id;
+	private Integer id;
 	private String nome;
 	private String email;
 	private String senha;
 	private Boolean status;
-	public int getId() {
+	
+	public Usuario() {
+		super();
+	}
+	public Usuario(Integer id, String nome, String email, String senha, Boolean status) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.status = status;
+	}
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -50,6 +61,9 @@ public class Usuario implements Serializable {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -63,24 +77,15 @@ public class Usuario implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		return id == other.id;
-	}
-	public Usuario() {
-		super();
-	}
-	public Usuario(int id, String nome, String email, String senha, Boolean status) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-		this.status = status;
+		return Objects.equals(id, other.id);
 	}
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", status=" + status
 				+ "]";
 	}
+	
+	
 	
 	
 	

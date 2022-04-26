@@ -8,7 +8,7 @@ import com.vinicius.domain.Veiculo;
 
 @Repository
 public interface VeiculoRepository  extends JpaRepository<Veiculo, Integer> {
-	@Query(value= "select * from RegistroVeiculo where id = ?", nativeQuery = true)
+	@Query(value= "select * from veiculo where id = ?", nativeQuery = true)
 	Veiculo find(int id);
 }
 

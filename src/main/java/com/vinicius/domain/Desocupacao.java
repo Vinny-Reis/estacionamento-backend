@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Desocupacao implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -16,29 +18,35 @@ public class Desocupacao implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
-	private int id;
-	private int horaSaida;
+	private Integer id;
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataSaida;
 	
-	
-	
-	public int getId() {
+	public Desocupacao() {
+		super();
+	}
+	public Desocupacao(Integer id, Date dataSaida) {
+		super();
+		this.id = id;
+		
+		this.dataSaida = dataSaida;
+	}
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getHoraSaida() {
-		return horaSaida;
-	}
-	public void setHoraSaida(int horaSaida) {
-		this.horaSaida = horaSaida;
-	}
+	
 	public Date getDataSaida() {
 		return dataSaida;
 	}
 	public void setDataSaida(Date dataSaida) {
 		this.dataSaida = dataSaida;
+	}
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	@Override
@@ -54,23 +62,15 @@ public class Desocupacao implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Desocupacao other = (Desocupacao) obj;
-		return id == other.id;
+		return Objects.equals(id, other.id);
 	}
-	
-	public Desocupacao() {
-		super();
-	}
-	public Desocupacao(int id, int horaSaida, Date dataSaida) {
-		super();
-		this.id = id;
-		this.horaSaida = horaSaida;
-		this.dataSaida = dataSaida;
-	}
-	
 	@Override
 	public String toString() {
-		return "Desocupacao [id=" + id + ", horaSaida=" + horaSaida + ", dataSaida=" + dataSaida + "]";
+		return "Desocupacao [id=" + id + ", horaSaida=" + ", dataSaida=" + dataSaida + "]";
 	}
+	
+	
+	
 	
 	
 	

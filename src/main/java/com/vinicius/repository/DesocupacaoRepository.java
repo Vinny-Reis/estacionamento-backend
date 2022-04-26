@@ -8,7 +8,7 @@ import com.vinicius.domain.Desocupacao;
 
 @Repository
 public interface DesocupacaoRepository  extends JpaRepository<Desocupacao, Integer> {
-	@Query(value= "select * from Desocupacao where id = ?", nativeQuery = true)
+	@Query(value= "select * from desocupacao where id = ?", nativeQuery = true)
 	Desocupacao find(int id);
 }
 

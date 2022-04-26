@@ -16,57 +16,93 @@ public class Veiculo implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 
-	private int id;
+	private Integer id;
 	private String placa;
 	private String modelo;
 	private String cor;
 	
 	@ManyToOne
-	private CategoriaVeiculo catveiculo;
+	private Cliente cliente;
+	
+	@ManyToOne
+	private CategoriaVeiculo categoriaVeiculo;
+	
 	
 	public Veiculo() {
 		super();
 	}
-	public Veiculo(int id, String placa, String modelo, String cor) {
+
+	public Veiculo(Integer id, String placa, String modelo, String cor, Cliente cliente, CategoriaVeiculo categoriaVeiculo) {
 		super();
 		this.id = id;
 		this.placa = placa;
 		this.modelo = modelo;
 		this.cor = cor;
+		this.cliente = cliente;
+		this.categoriaVeiculo = categoriaVeiculo;
 	}
-	
-	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
 	public String getModelo() {
 		return modelo;
 	}
-	
+
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
+
 	public String getCor() {
 		return cor;
 	}
+
 	public void setCor(String cor) {
 		this.cor = cor;
 	}
 	
-	public int getId() {
-		return id;
+
+	public Cliente getCliente() {
+		return cliente;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getPlaca() {
-		return placa;
-	}
-	public void setPlaca(String placa) {
-		this.placa = placa;
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 	
+	
+	public CategoriaVeiculo getCategoriaVeiculo() {
+		return categoriaVeiculo;
+	}
+
+	public void setCategoriaVeiculo(CategoriaVeiculo categoriaVeiculo) {
+		this.categoriaVeiculo = categoriaVeiculo;
+	}
+	
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -76,16 +112,14 @@ public class Veiculo implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Veiculo other = (Veiculo) obj;
-		return id == other.id;
+		return Objects.equals(id, other.id);
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return "RegistroVeiculo [id=" + id + ", placa=" + placa + ", modelo=" + modelo + ", cor=" + cor + "]";
+		return "Veiculo [id=" + id + ", placa=" + placa + ", modelo=" + modelo + ", cor=" + cor + "]";
 	}
-	
-	
+
 	
 	
 }

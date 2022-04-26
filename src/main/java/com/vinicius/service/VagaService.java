@@ -5,10 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
 
 import com.vinicius.domain.Vaga;
 import com.vinicius.repository.VagaRepository;
-
+@Service
 public class VagaService {
 	
 	@Autowired
@@ -26,9 +27,9 @@ public class VagaService {
 	}
 	
 	
-	public Vaga insert(Vaga obj){
-		find(obj.getId());
-		return repo.save(obj);
+	public Vaga insert(Vaga obj) {
+		repo.save(obj);
+		return obj;
 	}
 	
 	public Vaga update(Vaga obj) {

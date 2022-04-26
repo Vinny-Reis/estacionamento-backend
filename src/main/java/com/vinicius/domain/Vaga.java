@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Vaga implements Serializable {
@@ -15,19 +16,45 @@ public class Vaga implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 
-	private int id;
-	private Number numero;
+	private Integer id;
+	private int numero;
 	private String setor;
-	public int getId() {
+	
+	@ManyToOne
+	private Ocupacao ocupacao;
+	
+	
+	
+	public Vaga() {
+		super();
+	}
+	public Vaga(Integer id, int numero, String setor) {
+		super();
+		this.id = id;
+		this.numero = numero;
+		this.setor = setor;
+		
+	}
+	
+	
+	public Ocupacao getOcupacao() {
+		return ocupacao;
+	}
+	public void setOcupacao(Ocupacao ocupacao) {
+		this.ocupacao = ocupacao;
+	}
+	
+	
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public Number getNumero() {
 		return numero;
 	}
-	public void setNumero(Number numero) {
+	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 	public String getSetor() {
@@ -35,6 +62,9 @@ public class Vaga implements Serializable {
 	}
 	public void setSetor(String setor) {
 		this.setor = setor;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	@Override
 	public int hashCode() {
@@ -49,21 +79,14 @@ public class Vaga implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Vaga other = (Vaga) obj;
-		return id == other.id;
-	}
-	public Vaga() {
-		super();
-	}
-	public Vaga(int id, Number numero, String setor) {
-		super();
-		this.id = id;
-		this.numero = numero;
-		this.setor = setor;
+		return Objects.equals(id, other.id);
 	}
 	@Override
 	public String toString() {
 		return "Vaga [id=" + id + ", numero=" + numero + ", setor=" + setor + "]";
 	}
+	
+	
 	
 	
 	

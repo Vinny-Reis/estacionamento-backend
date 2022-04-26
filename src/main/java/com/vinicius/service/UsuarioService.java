@@ -5,10 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
 
 import com.vinicius.domain.Usuario;
 import com.vinicius.repository.UsuarioRepository;
-
+@Service
 public class UsuarioService {
 	
 	@Autowired
@@ -25,9 +26,9 @@ public class UsuarioService {
 		return usr;
 	}
 	
-	public Usuario insert(Usuario obj){
-		find(obj.getId());
-		return repo.save(obj);
+	public Usuario insert(Usuario obj) {
+		repo.save(obj);
+		return obj;
 	}
 	
 	public Usuario update(Usuario obj) {

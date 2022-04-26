@@ -8,6 +8,6 @@ import com.vinicius.domain.Cliente;
 
 @Repository
 public interface ClienteRepository  extends JpaRepository<Cliente, Integer> {
-	@Query(value= "select * from Cliente where id = ?", nativeQuery = true)
-	Cliente find(int id);
+	@Query(value= "select * from cliente where id = ?", nativeQuery = true)
+	Cliente find(Integer id);
 }

@@ -16,7 +16,7 @@ import com.vinicius.domain.CategoriaVeiculo;
 import com.vinicius.service.CategoriaVeiculoService;
 
 @RestController	
-@RequestMapping (value = "/CategoriaVeiculo")
+@RequestMapping (value = "/categoriaVeiculo")
 public class CategoriaVeiculoResource {
 	
 	@Autowired
@@ -28,6 +28,7 @@ public class CategoriaVeiculoResource {
 		CategoriaVeiculo obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<?> findAll() {
 		List<CategoriaVeiculo> obj = service.findAll();
@@ -35,15 +36,14 @@ public class CategoriaVeiculoResource {
 	}
 
 	
-	@RequestMapping (method = RequestMethod.POST )
-	public ResponseEntity<Void> insert(@RequestBody CategoriaVeiculo obj){
-		obj = service.insert(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<CategoriaVeiculo> insert(@RequestBody CategoriaVeiculo obj) {
+		CategoriaVeiculo objNovo = service.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(objNovo.getId())
+				.toUri();
+		return ResponseEntity.created(uri).body(objNovo);
 	}
-
-
 
 	
 	@RequestMapping(value = "/{id}",method = RequestMethod.PUT)
@@ -54,7 +54,7 @@ public class CategoriaVeiculoResource {
 	}
 	
 
-	@RequestMapping(value = "/{id", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id){
 			service.delete(id);
 			return ResponseEntity.noContent().build();

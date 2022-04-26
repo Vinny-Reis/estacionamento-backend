@@ -8,6 +8,6 @@ import com.vinicius.domain.Vaga;
 
 @Repository
 public interface VagaRepository  extends JpaRepository<Vaga, Integer> {
-	@Query(value= "select * from Vaga where id = ?", nativeQuery = true)
+	@Query(value= "select * from vaga where id = ?", nativeQuery = true)
 	Vaga find(int id);
 }

@@ -6,10 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.vinicius.domain.CategoriaVeiculo;
 
-
-	@Repository
-	public interface CategoriaVeiculoRepository  extends JpaRepository<CategoriaVeiculo, Integer> {
-		@Query(value= "select * from CategoriaVeiculo where id = ?", nativeQuery = true)
-		CategoriaVeiculo find(int id);
-	}
-
+@Repository
+public interface CategoriaVeiculoRepository  extends JpaRepository<CategoriaVeiculo, Integer> {
+	@Query(value= "select * from categoriaVeiculo where id = ?", nativeQuery = true)
+	CategoriaVeiculo find(Integer id);
+}
