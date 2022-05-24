@@ -38,15 +38,6 @@ public class CategoriaVeiculo implements Serializable {
 		this.valorHora = valorHora;
 	}
 	
-	
-	public List<Veiculo> getVeiculo() {
-		return veiculo;
-	}
-	public void setVeiculo(List<Veiculo> veiculo) {
-		this.veiculo = veiculo;
-	}
-	
-	
 	public Integer getId() {
 		return id;
 	}
@@ -59,11 +50,17 @@ public class CategoriaVeiculo implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Number getValorHora() {
+	public int getValorHora() {
 		return valorHora;
 	}
 	public void setValorHora(int valorHora) {
 		this.valorHora = valorHora;
+	}
+	public List<Veiculo> getVeiculo() {
+		return veiculo;
+	}
+	public void setVeiculo(List<Veiculo> veiculo) {
+		this.veiculo = veiculo;
 	}
 	
 	@Override

@@ -8,6 +8,6 @@ import com.vinicius.domain.CategoriaVeiculo;
 
 @Repository
 public interface CategoriaVeiculoRepository  extends JpaRepository<CategoriaVeiculo, Integer> {
-	@Query(value= "select * from categoriaVeiculo where id = ?", nativeQuery = true)
+	@Query(value= "select * from categoria_veiculo where id = ?", nativeQuery = true)
 	CategoriaVeiculo find(Integer id);
 }

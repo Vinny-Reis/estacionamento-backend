@@ -3,17 +3,20 @@ package com.vinicius.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -22,12 +25,15 @@ public class Cliente implements Serializable {
 	private String sexo;
 	private String cpf;
 	private String email;
-
-
+	
+	@JsonIgnore
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="cliente")
+	private Pagamento pagamento;
+	
+	
 	public Cliente() {
 		
 	}
-
 
 	public Cliente(Integer id, String nome, String sobreNome, String sexo, String cpf, String email) {
 		super();
@@ -100,6 +106,14 @@ public class Cliente implements Serializable {
 	}
 
 
+	public Pagamento getPagamento() {
+		return pagamento;
+	}
+
+	public void setPagamento(Pagamento pagamento) {
+		this.pagamento = pagamento;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -124,6 +138,7 @@ public class Cliente implements Serializable {
 		return "Cliente [id=" + id + ", nome=" + nome + ", sobreNome=" + sobreNome + ", sexo=" + sexo + ", cpf=" + cpf
 				+ ", email=" + email + "]";
 	}
+
 	
 	
 	

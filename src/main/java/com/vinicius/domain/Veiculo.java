@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Veiculo implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -21,11 +23,13 @@ public class Veiculo implements Serializable {
 	private String modelo;
 	private String cor;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Cliente cliente;
 	
 	@ManyToOne
 	private CategoriaVeiculo categoriaVeiculo;
+	
 	
 	
 	public Veiculo() {
@@ -93,11 +97,6 @@ public class Veiculo implements Serializable {
 	}
 	
 
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -120,6 +119,12 @@ public class Veiculo implements Serializable {
 		return "Veiculo [id=" + id + ", placa=" + placa + ", modelo=" + modelo + ", cor=" + cor + "]";
 	}
 
+	public int idOcupacao() {
+		return 0;
+	}
+
+	
+	
 	
 	
 }

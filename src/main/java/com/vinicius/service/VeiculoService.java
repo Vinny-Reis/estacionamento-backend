@@ -1,6 +1,5 @@
 package com.vinicius.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +20,8 @@ public class VeiculoService {
 		return obj;
 	}
 	public List<Veiculo> findAll() {
-		List<Veiculo> rveic = new ArrayList<Veiculo>();
-		rveic = repo.findAll();
-		return rveic;
+		
+		return repo.findAll();
 	}
 
 	

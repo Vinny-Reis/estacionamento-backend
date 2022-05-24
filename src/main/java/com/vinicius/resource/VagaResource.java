@@ -2,6 +2,7 @@ package com.vinicius.resource;
 
 import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.vinicius.domain.Vaga;
+import com.vinicius.dto.VagaDto;
 import com.vinicius.service.VagaService;
 
 @RestController
@@ -29,9 +31,10 @@ public class VagaResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<?> findAll() {
-		List<Vaga> obj = service.findAll();
-		return ResponseEntity.ok().body(obj);
+	public ResponseEntity<List<VagaDto>> findAll() {
+		List<Vaga> list = service.findAll();
+		List<VagaDto> listDto = list.stream().map(obj -> new VagaDto(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDto);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
