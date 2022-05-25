@@ -1,17 +1,12 @@
 package com.vinicius.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class CategoriaVeiculo implements Serializable {
@@ -22,11 +17,6 @@ public class CategoriaVeiculo implements Serializable {
 	private Integer id;
 	private String descricao;
 	private int valorHora;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "categoriaVeiculo")
-	private List<Veiculo> veiculo = new ArrayList<>();
-	
 	
 	public CategoriaVeiculo() {
 		super();
@@ -56,12 +46,7 @@ public class CategoriaVeiculo implements Serializable {
 	public void setValorHora(int valorHora) {
 		this.valorHora = valorHora;
 	}
-	public List<Veiculo> getVeiculo() {
-		return veiculo;
-	}
-	public void setVeiculo(List<Veiculo> veiculo) {
-		this.veiculo = veiculo;
-	}
+	
 	
 	@Override
 	public int hashCode() {

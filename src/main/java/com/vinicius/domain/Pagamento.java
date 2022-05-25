@@ -21,7 +21,7 @@ public class Pagamento implements Serializable {
 
 	@Id
 	private Integer id;
-	private EstadoPagamento estado;
+	private Integer estado;
 	
 	@OneToOne
 	@JoinColumn(name="cliente_id")
@@ -36,7 +36,7 @@ public class Pagamento implements Serializable {
 	public Pagamento(Integer id, EstadoPagamento estado, Cliente cliente) {
 		super();
 		this.setId(id);
-		this.estado = estado;
+		this.estado = estado.getCod();
 		this.cliente = cliente;
 	}
 
@@ -49,11 +49,11 @@ public class Pagamento implements Serializable {
 	}
 
 	public EstadoPagamento getEstado() {
-		return estado;
+		return EstadoPagamento.toEnum(estado);
 	}
 
 	public void setEstado(EstadoPagamento estado) {
-		this.estado = estado;
+		this.estado = estado.getCod();
 	}
 
 	public Cliente getCliente() {

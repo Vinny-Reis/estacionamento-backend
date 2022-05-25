@@ -1,6 +1,7 @@
 package com.vinicius.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,11 @@ public class VagaService {
 	
 	
 	public Vaga insert(Vaga obj) {
-		repo.save(obj);
-		return obj;
+		
+		obj.setDataEnt(new Date(System.currentTimeMillis()));
+		obj.setDataSaida(new Date(System.currentTimeMillis()));
+		
+		return repo.save(obj);
 	}
 	
 	public Vaga update(Vaga obj) {

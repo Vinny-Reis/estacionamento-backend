@@ -29,6 +29,7 @@ public class Vaga implements Serializable {
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataSaida;
 	
+
 	@ManyToOne
 	private Veiculo veiculo;
 

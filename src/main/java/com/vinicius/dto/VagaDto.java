@@ -1,7 +1,6 @@
 package com.vinicius.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import com.vinicius.domain.Vaga;
 
@@ -17,9 +16,13 @@ public class VagaDto implements Serializable {
 	private String placa;
 	private String modelo;
 	private String cor;
+	
+	private int idCategoriaVeiculo;
+	private String descricao;
+	private int valorHora;
 		
 	public VagaDto(Integer id, int numero, String setor, int idVeiculo, String placa, String modelo, String cor,
-			int idOcupacao, Date dataEnt, int idDesocupacao, Date dataSaida) {
+			int idCategoriaVeiculo, String descricao, int valorHora) {
 		super();
 		this.id = id;
 		this.numero = numero;
@@ -29,6 +32,10 @@ public class VagaDto implements Serializable {
 		this.placa = placa;
 		this.modelo = modelo;
 		this.cor = cor;
+		
+		this.idCategoriaVeiculo = idCategoriaVeiculo;
+		this.descricao = descricao;
+		this.valorHora = valorHora;
 	}
 
 
@@ -42,7 +49,10 @@ public class VagaDto implements Serializable {
 		this.placa = obj.getVeiculo().getPlaca();
 		this.modelo = obj.getVeiculo().getModelo();
 		this.cor = obj.getVeiculo().getCor();
-				
+			
+		this.idCategoriaVeiculo = obj.getVeiculo().getCategoriaVeiculo().getId();
+		this.descricao = obj.getVeiculo().getCategoriaVeiculo().getDescricao();
+		this.valorHora = obj.getVeiculo().getCategoriaVeiculo().getValorHora();
 	}
 
 	public Integer getId() {
@@ -86,6 +96,36 @@ public class VagaDto implements Serializable {
 	}
 	public void setCor(String cor) {
 		this.cor = cor;
+	}
+
+
+	public int getIdCategoriaVeiculo() {
+		return idCategoriaVeiculo;
+	}
+
+
+	public void setIdCategoriaVeiculo(int idCategoriaVeiculo) {
+		this.idCategoriaVeiculo = idCategoriaVeiculo;
+	}
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
+	public int getValorHora() {
+		return valorHora;
+	}
+
+
+	public void setValorHora(int valorHora) {
+		this.valorHora = valorHora;
 	}
 	
 
